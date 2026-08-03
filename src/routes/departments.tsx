@@ -55,7 +55,7 @@ function DepartmentsScreen() {
       </div>
 
       <div className="mt-3 flex gap-2 overflow-x-auto pb-1">
-        {[{ id: "all", short: "All floors" }, ...FLOORS].map((f) => (
+        {[{ id: "all", short: "All floors" }, ...FLOORS.map((f) => ({ id: f.id as string, short: f.short }))].map((f) => (
           <button
             key={f.id}
             type="button"
@@ -63,7 +63,7 @@ function DepartmentsScreen() {
             aria-pressed={floor === f.id}
             className="ripple shrink-0 rounded-full border border-border px-3.5 py-2 text-xs font-medium text-muted-foreground transition-colors aria-pressed:border-primary aria-pressed:bg-primary-container aria-pressed:text-primary-container-foreground"
           >
-            {"short" in f ? f.short : f.id}
+            {f.short}
           </button>
         ))}
       </div>

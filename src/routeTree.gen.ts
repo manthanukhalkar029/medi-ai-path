@@ -15,6 +15,7 @@ import { Route as AssistantRouteImport } from './routes/assistant'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as DepartmentsRouteImport } from './routes/departments'
 import { Route as DoctorsRouteImport } from './routes/doctors'
+import { Route as EmergencyRouteImport } from './routes/emergency'
 import { Route as HomeRouteImport } from './routes/home'
 import { Route as NavigateRouteImport } from './routes/navigate'
 import { Route as ScanRouteImport } from './routes/scan'
@@ -49,6 +50,11 @@ const DoctorsRoute = DoctorsRouteImport.update({
   path: '/doctors',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EmergencyRoute = EmergencyRouteImport.update({
+  id: '/emergency',
+  path: '/emergency',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HomeRoute = HomeRouteImport.update({
   id: '/home',
   path: '/home',
@@ -72,6 +78,7 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/departments': typeof DepartmentsRoute
   '/doctors': typeof DoctorsRoute
+  '/emergency': typeof EmergencyRoute
   '/home': typeof HomeRoute
   '/navigate': typeof NavigateRoute
   '/scan': typeof ScanRoute
@@ -83,6 +90,7 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/departments': typeof DepartmentsRoute
   '/doctors': typeof DoctorsRoute
+  '/emergency': typeof EmergencyRoute
   '/home': typeof HomeRoute
   '/navigate': typeof NavigateRoute
   '/scan': typeof ScanRoute
@@ -95,6 +103,7 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/departments': typeof DepartmentsRoute
   '/doctors': typeof DoctorsRoute
+  '/emergency': typeof EmergencyRoute
   '/home': typeof HomeRoute
   '/navigate': typeof NavigateRoute
   '/scan': typeof ScanRoute
@@ -108,6 +117,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/departments'
     | '/doctors'
+    | '/emergency'
     | '/home'
     | '/navigate'
     | '/scan'
@@ -119,6 +129,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/departments'
     | '/doctors'
+    | '/emergency'
     | '/home'
     | '/navigate'
     | '/scan'
@@ -130,6 +141,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/departments'
     | '/doctors'
+    | '/emergency'
     | '/home'
     | '/navigate'
     | '/scan'
@@ -142,6 +154,7 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   DepartmentsRoute: typeof DepartmentsRoute
   DoctorsRoute: typeof DoctorsRoute
+  EmergencyRoute: typeof EmergencyRoute
   HomeRoute: typeof HomeRoute
   NavigateRoute: typeof NavigateRoute
   ScanRoute: typeof ScanRoute
@@ -191,6 +204,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DoctorsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/emergency': {
+      id: '/emergency'
+      path: '/emergency'
+      fullPath: '/emergency'
+      preLoaderRoute: typeof EmergencyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/home': {
       id: '/home'
       path: '/home'
@@ -222,6 +242,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   DepartmentsRoute: DepartmentsRoute,
   DoctorsRoute: DoctorsRoute,
+  EmergencyRoute: EmergencyRoute,
   HomeRoute: HomeRoute,
   NavigateRoute: NavigateRoute,
   ScanRoute: ScanRoute,

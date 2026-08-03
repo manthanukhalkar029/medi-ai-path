@@ -19,6 +19,7 @@ import { Route as DoctorsRouteImport } from './routes/doctors'
 import { Route as EmergencyRouteImport } from './routes/emergency'
 import { Route as HomeRouteImport } from './routes/home'
 import { Route as NavigateRouteImport } from './routes/navigate'
+import { Route as NotificationsRouteImport } from './routes/notifications'
 import { Route as ScanRouteImport } from './routes/scan'
 import { Route as ServicesRouteImport } from './routes/services'
 
@@ -72,6 +73,11 @@ const NavigateRoute = NavigateRouteImport.update({
   path: '/navigate',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NotificationsRoute = NotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ScanRoute = ScanRouteImport.update({
   id: '/scan',
   path: '/scan',
@@ -94,6 +100,7 @@ export interface FileRoutesByFullPath {
   '/emergency': typeof EmergencyRoute
   '/home': typeof HomeRoute
   '/navigate': typeof NavigateRoute
+  '/notifications': typeof NotificationsRoute
   '/scan': typeof ScanRoute
   '/services': typeof ServicesRoute
 }
@@ -108,6 +115,7 @@ export interface FileRoutesByTo {
   '/emergency': typeof EmergencyRoute
   '/home': typeof HomeRoute
   '/navigate': typeof NavigateRoute
+  '/notifications': typeof NotificationsRoute
   '/scan': typeof ScanRoute
   '/services': typeof ServicesRoute
 }
@@ -123,6 +131,7 @@ export interface FileRoutesById {
   '/emergency': typeof EmergencyRoute
   '/home': typeof HomeRoute
   '/navigate': typeof NavigateRoute
+  '/notifications': typeof NotificationsRoute
   '/scan': typeof ScanRoute
   '/services': typeof ServicesRoute
 }
@@ -139,6 +148,7 @@ export interface FileRouteTypes {
     | '/emergency'
     | '/home'
     | '/navigate'
+    | '/notifications'
     | '/scan'
     | '/services'
   fileRoutesByTo: FileRoutesByTo
@@ -153,6 +163,7 @@ export interface FileRouteTypes {
     | '/emergency'
     | '/home'
     | '/navigate'
+    | '/notifications'
     | '/scan'
     | '/services'
   id:
@@ -167,6 +178,7 @@ export interface FileRouteTypes {
     | '/emergency'
     | '/home'
     | '/navigate'
+    | '/notifications'
     | '/scan'
     | '/services'
   fileRoutesById: FileRoutesById
@@ -182,6 +194,7 @@ export interface RootRouteChildren {
   EmergencyRoute: typeof EmergencyRoute
   HomeRoute: typeof HomeRoute
   NavigateRoute: typeof NavigateRoute
+  NotificationsRoute: typeof NotificationsRoute
   ScanRoute: typeof ScanRoute
   ServicesRoute: typeof ServicesRoute
 }
@@ -258,6 +271,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NavigateRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/notifications': {
+      id: '/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof NotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/scan': {
       id: '/scan'
       path: '/scan'
@@ -286,6 +306,7 @@ const rootRouteChildren: RootRouteChildren = {
   EmergencyRoute: EmergencyRoute,
   HomeRoute: HomeRoute,
   NavigateRoute: NavigateRoute,
+  NotificationsRoute: NotificationsRoute,
   ScanRoute: ScanRoute,
   ServicesRoute: ServicesRoute,
 }

@@ -18,6 +18,7 @@ import { Route as DepartmentsRouteImport } from './routes/departments'
 import { Route as DoctorsRouteImport } from './routes/doctors'
 import { Route as EmergencyRouteImport } from './routes/emergency'
 import { Route as FeedbackRouteImport } from './routes/feedback'
+import { Route as HelpRouteImport } from './routes/help'
 import { Route as HistoryRouteImport } from './routes/history'
 import { Route as HomeRouteImport } from './routes/home'
 import { Route as NavigateRouteImport } from './routes/navigate'
@@ -72,6 +73,11 @@ const FeedbackRoute = FeedbackRouteImport.update({
   path: '/feedback',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HelpRoute = HelpRouteImport.update({
+  id: '/help',
+  path: '/help',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HistoryRoute = HistoryRouteImport.update({
   id: '/history',
   path: '/history',
@@ -123,6 +129,7 @@ export interface FileRoutesByFullPath {
   '/doctors': typeof DoctorsRoute
   '/emergency': typeof EmergencyRoute
   '/feedback': typeof FeedbackRoute
+  '/help': typeof HelpRoute
   '/history': typeof HistoryRoute
   '/home': typeof HomeRoute
   '/navigate': typeof NavigateRoute
@@ -142,6 +149,7 @@ export interface FileRoutesByTo {
   '/doctors': typeof DoctorsRoute
   '/emergency': typeof EmergencyRoute
   '/feedback': typeof FeedbackRoute
+  '/help': typeof HelpRoute
   '/history': typeof HistoryRoute
   '/home': typeof HomeRoute
   '/navigate': typeof NavigateRoute
@@ -162,6 +170,7 @@ export interface FileRoutesById {
   '/doctors': typeof DoctorsRoute
   '/emergency': typeof EmergencyRoute
   '/feedback': typeof FeedbackRoute
+  '/help': typeof HelpRoute
   '/history': typeof HistoryRoute
   '/home': typeof HomeRoute
   '/navigate': typeof NavigateRoute
@@ -183,6 +192,7 @@ export interface FileRouteTypes {
     | '/doctors'
     | '/emergency'
     | '/feedback'
+    | '/help'
     | '/history'
     | '/home'
     | '/navigate'
@@ -202,6 +212,7 @@ export interface FileRouteTypes {
     | '/doctors'
     | '/emergency'
     | '/feedback'
+    | '/help'
     | '/history'
     | '/home'
     | '/navigate'
@@ -221,6 +232,7 @@ export interface FileRouteTypes {
     | '/doctors'
     | '/emergency'
     | '/feedback'
+    | '/help'
     | '/history'
     | '/home'
     | '/navigate'
@@ -241,6 +253,7 @@ export interface RootRouteChildren {
   DoctorsRoute: typeof DoctorsRoute
   EmergencyRoute: typeof EmergencyRoute
   FeedbackRoute: typeof FeedbackRoute
+  HelpRoute: typeof HelpRoute
   HistoryRoute: typeof HistoryRoute
   HomeRoute: typeof HomeRoute
   NavigateRoute: typeof NavigateRoute
@@ -316,6 +329,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FeedbackRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/help': {
+      id: '/help'
+      path: '/help'
+      fullPath: '/help'
+      preLoaderRoute: typeof HelpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/history': {
       id: '/history'
       path: '/history'
@@ -385,6 +405,7 @@ const rootRouteChildren: RootRouteChildren = {
   DoctorsRoute: DoctorsRoute,
   EmergencyRoute: EmergencyRoute,
   FeedbackRoute: FeedbackRoute,
+  HelpRoute: HelpRoute,
   HistoryRoute: HistoryRoute,
   HomeRoute: HomeRoute,
   NavigateRoute: NavigateRoute,

@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AssistantRouteImport } from './routes/assistant'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as DepartmentsRouteImport } from './routes/departments'
+import { Route as DoctorsRouteImport } from './routes/doctors'
 import { Route as HomeRouteImport } from './routes/home'
 import { Route as ScanRouteImport } from './routes/scan'
 
@@ -36,6 +37,11 @@ const DepartmentsRoute = DepartmentsRouteImport.update({
   path: '/departments',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DoctorsRoute = DoctorsRouteImport.update({
+  id: '/doctors',
+  path: '/doctors',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HomeRoute = HomeRouteImport.update({
   id: '/home',
   path: '/home',
@@ -52,6 +58,7 @@ export interface FileRoutesByFullPath {
   '/assistant': typeof AssistantRoute
   '/auth': typeof AuthRoute
   '/departments': typeof DepartmentsRoute
+  '/doctors': typeof DoctorsRoute
   '/home': typeof HomeRoute
   '/scan': typeof ScanRoute
 }
@@ -60,6 +67,7 @@ export interface FileRoutesByTo {
   '/assistant': typeof AssistantRoute
   '/auth': typeof AuthRoute
   '/departments': typeof DepartmentsRoute
+  '/doctors': typeof DoctorsRoute
   '/home': typeof HomeRoute
   '/scan': typeof ScanRoute
 }
@@ -69,20 +77,36 @@ export interface FileRoutesById {
   '/assistant': typeof AssistantRoute
   '/auth': typeof AuthRoute
   '/departments': typeof DepartmentsRoute
+  '/doctors': typeof DoctorsRoute
   '/home': typeof HomeRoute
   '/scan': typeof ScanRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/assistant' | '/auth' | '/departments' | '/home' | '/scan'
+  fullPaths:
+    | '/'
+    | '/assistant'
+    | '/auth'
+    | '/departments'
+    | '/doctors'
+    | '/home'
+    | '/scan'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/assistant' | '/auth' | '/departments' | '/home' | '/scan'
+  to:
+    | '/'
+    | '/assistant'
+    | '/auth'
+    | '/departments'
+    | '/doctors'
+    | '/home'
+    | '/scan'
   id:
     | '__root__'
     | '/'
     | '/assistant'
     | '/auth'
     | '/departments'
+    | '/doctors'
     | '/home'
     | '/scan'
   fileRoutesById: FileRoutesById
@@ -92,6 +116,7 @@ export interface RootRouteChildren {
   AssistantRoute: typeof AssistantRoute
   AuthRoute: typeof AuthRoute
   DepartmentsRoute: typeof DepartmentsRoute
+  DoctorsRoute: typeof DoctorsRoute
   HomeRoute: typeof HomeRoute
   ScanRoute: typeof ScanRoute
 }
@@ -126,6 +151,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DepartmentsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/doctors': {
+      id: '/doctors'
+      path: '/doctors'
+      fullPath: '/doctors'
+      preLoaderRoute: typeof DoctorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/home': {
       id: '/home'
       path: '/home'
@@ -148,6 +180,7 @@ const rootRouteChildren: RootRouteChildren = {
   AssistantRoute: AssistantRoute,
   AuthRoute: AuthRoute,
   DepartmentsRoute: DepartmentsRoute,
+  DoctorsRoute: DoctorsRoute,
   HomeRoute: HomeRoute,
   ScanRoute: ScanRoute,
 }

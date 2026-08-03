@@ -1,0 +1,14 @@
+{
+  "name": "MediNav AI — Indoor Hospital Navigation",
+  "short_name": "MediNav AI",
+  "description": "Agentic, explainable AI indoor hospital navigation with QR positioning, AR wayfinding and voice guidance.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F8FAFC",
+  "theme_color": "#2563EB",
+  "orientation": "portrait",
+  "categories": ["health", "medical", "navigation"],
+  "icons": [
+    { "src": "/favicon.ico", "sizes": "48x48", "type": "image/x-icon" }
+  ]
+}

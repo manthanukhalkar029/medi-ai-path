@@ -9,6 +9,10 @@
   "orientation": "portrait",
   "categories": ["health", "medical", "navigation"],
   "icons": [
-    { "src": "/favicon.ico", "sizes": "48x48", "type": "image/x-icon" }
+    {
+      "src": "/medinav.ico",
+      "sizes": "256x256",
+      "type": "image/x-icon"
+    }
   ]
 }

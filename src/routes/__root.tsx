@@ -95,7 +95,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "MediNav AI" },
       {
         property: "og:description",
-        content: "Agentic, explainable AI indoor navigation for hospitals — no app install required.",
+        content:
+          "Agentic, explainable AI indoor navigation for hospitals — no app install required.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -109,7 +110,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "stylesheet", href: appCss },
       { rel: "manifest", href: "/manifest.webmanifest" },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/medinav.ico", type: "image/x-icon" },
     ],
   }),
   shellComponent: RootShell,
